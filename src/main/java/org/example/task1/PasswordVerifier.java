@@ -2,6 +2,9 @@ package org.example.task1;
 
 import java.util.Scanner;
 
+/**
+ * Класс PasswordVerifier для проверки пароля
+ */
 public class PasswordVerifier implements PasswordService {
     private String password;
 
@@ -16,6 +19,11 @@ public class PasswordVerifier implements PasswordService {
     public PasswordVerifier() {
     }
 
+    /**
+     * Метод проверки пароля
+     * @param password Вводимый пароль
+     * @throws PasswordVerifierException исключение при некорректном введенном пароле
+     */
     public void passwordVerifier(String password) throws PasswordVerifierException {
         String sample1 = ".{8,}";
         String sample2 = ".*[0-9]+.*";
@@ -32,6 +40,11 @@ public class PasswordVerifier implements PasswordService {
         }
     }
 
+    /**
+     * Обработка исключений
+     * @param scanner текстовый сканер для ввода пароля
+     * @param count количество попыток ввода пароля
+     */
     @Override
     public void checkPassword(Scanner scanner, int count) {
         int i = 0;
@@ -52,6 +65,12 @@ public class PasswordVerifier implements PasswordService {
         }
     }
 
+    /**
+     * Метод запроса
+     * @param scanner текстовый сканер
+     * @param message введенное сообщение
+     * @return запрос
+     */
     @Override
     public String getConcolePassword(Scanner scanner, String message) {
         System.out.print(message);
